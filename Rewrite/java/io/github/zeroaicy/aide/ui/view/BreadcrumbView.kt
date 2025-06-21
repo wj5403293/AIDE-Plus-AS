@@ -6,10 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.aide.ui.rewrite.R
+import com.aide.ui.rewrite.databinding.ItemBreadcrumbBinding
 
 
 class BreadcrumbView @JvmOverloads constructor(
@@ -36,6 +35,22 @@ class BreadcrumbView @JvmOverloads constructor(
         recyclerView.scrollToPosition(items.size - 1)
 
     }
+
+    fun setFullPath(fullPath: String, onClick: (BreadcrumbItem, Int) -> Unit) {
+        val cleanedPath = fullPath.trim('/')
+
+        val segments = if (cleanedPath.isEmpty()) emptyList() else cleanedPath.split("/")
+        val breadcrumbList = mutableListOf<BreadcrumbItem>()
+        var currentPath = ""
+
+        for (segment in segments) {
+            currentPath += "/$segment"
+            breadcrumbList.add(BreadcrumbItem(segment, currentPath))
+        }
+
+        setPath(breadcrumbList, onClick)
+    }
+
 }
 
 
@@ -44,26 +59,22 @@ class BreadcrumbAdapter(
     private val onClick: (BreadcrumbItem, Int) -> Unit
 ) : RecyclerView.Adapter<BreadcrumbAdapter.ViewHolder>() {
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-//        val icon: ImageView = view.findViewById(R.id.icon)
-        val text: TextView = view.findViewById(R.id.text)!!
-        val divider: TextView = view.findViewById(R.id.divider)!!
-    }
+    inner class ViewHolder(val binding: ItemBreadcrumbBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_breadcrumb, parent, false)
-        return ViewHolder(view)
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemBreadcrumbBinding.inflate(inflater, parent, false)
+        return ViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
+        holder.binding.text.text = item.name
+        holder.binding.divider.visibility = if (position == items.lastIndex) View.GONE else View.VISIBLE
 
-        holder.text.text = item.name
-        holder.divider.visibility = if (position == items.lastIndex) View.GONE else View.VISIBLE
-
-        holder.itemView.setOnClickListener {
+        holder.binding.text.setOnClickListener {
             onClick(item, position)
         }
     }

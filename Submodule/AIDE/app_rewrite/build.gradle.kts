@@ -134,6 +134,7 @@ dependencies {
     api(libs.org.apache.maven.model)
     api(libs.org.codehaus.plexus.utils)
 
+    api(libs.mmkv)
 
     // BC加密库
     api(libs.org.bouncycastle.bcprov.jdk18on)

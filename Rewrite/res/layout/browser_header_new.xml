@@ -35,7 +35,7 @@
                 style="@style/BrowserHeaderLabel"
                 tools:ignore="HardcodedText" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <io.github.zeroaicy.aide.ui.view.BreadcrumbView
                 android:ellipsize="start"
                 android:id="@+id/browserHeaderBreadcrumb"
                 android:layout_width="0dp"

@@ -2,8 +2,17 @@ package com.aide.ui.browsers;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Picture;
+import android.graphics.drawable.PictureDrawable;
 import android.util.AttributeSet;
-import android.view.*;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,7 +23,12 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import com.aide.common.AppLog;
 import com.aide.common.KeyStrokeDetector;
 import com.aide.common.ListAdapterBase;
-import com.aide.ui.*;
+import com.aide.ui.AppCommands;
+import com.aide.ui.AppFileIcons;
+import com.aide.ui.GlobalKeyCommand;
+import com.aide.ui.MainActivity;
+import com.aide.ui.QuickActionMenu;
+import com.aide.ui.ServiceContainer;
 import com.aide.ui.command.FileBrowserCommand;
 import com.aide.ui.firebase.FireBaseLogEvent;
 import com.aide.ui.rewrite.R;
@@ -22,23 +36,33 @@ import com.aide.ui.rewrite.databinding.ItemFilebrowserEntryBinding;
 import com.aide.ui.services.FileBrowserService;
 import com.aide.ui.util.FileSystem;
 import com.aide.ui.views.CustomKeysListView;
-import com.blankj.utilcode.util.ConvertUtils;
+import com.blankj.utilcode.util.CloseUtils;
 import com.blankj.utilcode.util.LogUtils;
-import com.blankj.utilcode.util.SPStaticUtils;
-import com.blankj.utilcode.util.TimeUtils;
+import com.blankj.utilcode.util.Utils;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.caverock.androidsvg.SVG;
 import com.github.promeg.pinyinhelper.Pinyin;
 import com.topjohnwu.superuser.io.SuFile;
 
 import java.io.File;
-import java.util.*;
+import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import io.github.zeroaicy.aide.ui.view.BreadcrumbItem;
 import io.github.zeroaicy.aide.ui.view.BreadcrumbView;
 import io.github.zeroaicy.aide.utils.FilesSystem;
 import io.github.zeroaicy.aide.utils.FilesSystemKt;
+import io.github.zeroaicy.util.ContextUtil;
 import jaxp.sun.org.apache.xalan.internal.templates.Constants;
+import me.zhanghai.android.appiconloader.AppIconLoader;
 
-public class FileBrowser1 extends LinearLayoutCompat implements
+public class FileBrowser extends LinearLayoutCompat implements
         FileBrowserService.a,
         a {
 
@@ -51,7 +75,7 @@ public class FileBrowser1 extends LinearLayoutCompat implements
     private String lastFolder = null;
 
 
-    public FileBrowser1(Context context) {
+    public FileBrowser(Context context) {
         super(context);
         this.WB = new QuickActionMenu(ServiceContainer.getMainActivity(), R.menu.filebrowser_context_menu);
         this.mb = new QuickActionMenu(ServiceContainer.getMainActivity(), R.menu.git_context_menu);
@@ -59,7 +83,7 @@ public class FileBrowser1 extends LinearLayoutCompat implements
         EQ();
     }
 
-    public FileBrowser1(Context context, AttributeSet attributeSet) {
+    public FileBrowser(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.WB = new QuickActionMenu(ServiceContainer.getMainActivity(), R.menu.filebrowser_context_menu);
         this.mb = new QuickActionMenu(ServiceContainer.getMainActivity(), R.menu.git_context_menu);
@@ -127,24 +151,24 @@ public class FileBrowser1 extends LinearLayoutCompat implements
         listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                FileBrowser1.this.Mr((Data) listView.getItemAtPosition(position));
+                FileBrowser.this.Mr((Data) listView.getItemAtPosition(position));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                FileBrowser1.this.Mr(null);
+                FileBrowser.this.Mr(null);
             }
         });
         listView.setOnKeyEventListener(new CustomKeysListView.OnKeyEventListener() {
             @Override
             public boolean onKeyDown(int i, KeyEvent keyEvent) {
-                return ServiceContainer.getMainActivity().getKeyStrokeDetector().onKeyDown(i, keyEvent, FileBrowser1.this.jw);
+                return ServiceContainer.getMainActivity().getKeyStrokeDetector().onKeyDown(i, keyEvent, FileBrowser.this.jw);
 
             }
 
             @Override
             public boolean onKeyUp(int i, KeyEvent keyEvent) {
-                return ServiceContainer.getMainActivity().getKeyStrokeDetector().onKeyUp(i, keyEvent, FileBrowser1.this.jw);
+                return ServiceContainer.getMainActivity().getKeyStrokeDetector().onKeyUp(i, keyEvent, FileBrowser.this.jw);
             }
         });
         listView.setOnItemLongClickListener((parent, view, position, id) -> {
@@ -152,8 +176,8 @@ public class FileBrowser1 extends LinearLayoutCompat implements
             if (hVar == null) {
                 return true;
             }
-            FileBrowser1.this.Mr(hVar);
-            FileBrowser1.this.XL(view, true);
+            FileBrowser.this.Mr(hVar);
+            FileBrowser.this.XL(view, true);
             return true;
         });
         listView.setOnItemClickListener((parent, view, position, id) -> {
@@ -162,7 +186,7 @@ public class FileBrowser1 extends LinearLayoutCompat implements
                 return;
             }
             if (hVar.Hw != null) {
-                FileBrowser1.this.fY = view;
+                FileBrowser.this.fY = view;
                 FireBaseLogEvent.tp("Browser command: " + hVar.Hw.getNameId());
                 if (hVar.Hw.isVisible(false)) {
                     hVar.Hw.run();
@@ -171,7 +195,7 @@ public class FileBrowser1 extends LinearLayoutCompat implements
                 return;
             }
             if (hVar.DW) {
-                FileBrowser1.this.getActivity().openFile(hVar.FH);
+                FileBrowser.this.getActivity().openFile(hVar.FH);
                 return;
             }
             if (hVar.DW()) {
@@ -179,14 +203,14 @@ public class FileBrowser1 extends LinearLayoutCompat implements
                 if (str != null) {
                     ServiceContainer.getFileBrowserService().Hw(str);
                 }
-                FileBrowser1.this.getListView().setSelection(0);
+                FileBrowser.this.getListView().setSelection(0);
                 return;
             }
             String str2 = hVar.FH;
             if (str2 != null) {
-                FileBrowser1.this.J8(str2);
+                FileBrowser.this.J8(str2);
             }
-            FileBrowser1.this.getListView().setSelection(0);
+            FileBrowser.this.getListView().setSelection(0);
 
         });
         QX();
@@ -263,7 +287,7 @@ public class FileBrowser1 extends LinearLayoutCompat implements
         ImageView imageView = listView.findViewById(R.id.browserHeaderMenuButton);
         imageView.setOnClickListener(v -> {
             ServiceContainer.getFileBrowserService().VH(null);
-            FileBrowser1.this.XL(imageView, true);
+            FileBrowser.this.XL(imageView, true);
         });
         List<Data> arrayList = new ArrayList<>();
         String parent = FileSystem.getParent(j6);
@@ -366,8 +390,8 @@ public class FileBrowser1 extends LinearLayoutCompat implements
                             int compareTo = substring.compareTo(lastIndexOf2 > 0 ? lowerCase2.substring(lastIndexOf2) : "");
                             return compareTo != 0 ? compareTo : lowerCase.compareTo(lowerCase2);
                         }
-                        boolean we = FileBrowser1.we(lowerCase);
-                        boolean we2 = FileBrowser1.we(lowerCase2);
+                        boolean we = FileBrowser.we(lowerCase);
+                        boolean we2 = FileBrowser.we(lowerCase2);
                         if (we && !we2) {
                             return 1;
                         }
@@ -467,13 +491,13 @@ public class FileBrowser1 extends LinearLayoutCompat implements
 
     static class Adapter extends ListAdapterBase<Data> {
 
-        FileBrowser1 fileBrowser;
+        FileBrowser fileBrowser;
 
-        public Adapter(FileBrowser1 fileBrowser) {
+        public Adapter(FileBrowser fileBrowser) {
             this.fileBrowser = fileBrowser;
         }
 
-        public Adapter(FileBrowser1 fileBrowser, AdapterView.OnItemSelectedListener listener) {
+        public Adapter(FileBrowser fileBrowser, AdapterView.OnItemSelectedListener listener) {
             this(fileBrowser);
         }
 
@@ -516,42 +540,41 @@ public class FileBrowser1 extends LinearLayoutCompat implements
                         }
                         break label;
                     }
-                    boolean file_browser_display_folder_info = !isFileInArchive && SPStaticUtils.getBoolean("file_browser_display_folder_info", false);
-                    boolean file_browser_display_file_info = !isFileInArchive && SPStaticUtils.getBoolean("file_browser_display_file_info", false);
-
                     if (file.isDirectory()) {
                         binding.smallIcon.setVisibility(View.VISIBLE);
                         binding.smallIcon.setImageDrawable(null);
-
-                        String[] filelist = file.list();
-                        int fileCount = filelist == null ? 0 : filelist.length;
-
-                        if (file_browser_display_folder_info) {
-                            binding.subtitle.setText(TimeUtils.date2String(new Date(file.lastModified()), dateFormat) + " " + fileCount);
-
-
-                        }
-
                     } else if (file.isFile()) {
-                        if (file_browser_display_file_info) {
-                             binding.subtitle.setText(TimeUtils.date2String(new Date(file.lastModified()), dateFormat) + " " + ConvertUtils.byte2FitMemorySize(file.length(), 2));
+                        String currentPath = ServiceContainer.getMainActivity().getAIDEEditorPager().getVisibleFile();
+                        if (currentPath != null) {
+                            SuFile currentEditorFile = new SuFile(currentPath);
+                            if (file.getAbsolutePath().equals(currentEditorFile.getAbsolutePath())) {
+                                binding.barStart.setVisibility(View.VISIBLE);
+                                binding.bgView.setVisibility(View.VISIBLE);
+                            } else {
+                                binding.barStart.setVisibility(View.GONE);
+                                binding.bgView.setVisibility(View.GONE);
+                            }
                         }
 
-                        SuFile currentEditorFile = new SuFile(ServiceContainer.getMainActivity().getAIDEEditorPager().getVisibleFile());
-                        if (file.getAbsolutePath().equals(currentEditorFile.getAbsolutePath())) {
-                            binding.barStart.setVisibility(View.VISIBLE);
-                            binding.bgView.setVisibility(View.VISIBLE);
-                        } else {
-                            binding.barStart.setVisibility(View.GONE);
-                            binding.bgView.setVisibility(View.GONE);
-                        }
 
-/*
                         String filename = file.getName();
                         if (filename.endsWith(".apk")
                                 || filename.endsWith(".apk.bak")) {
                             try {
-                                binding.icon.setImageDrawable(Objects.requireNonNull(AppUtils.getApkInfo(file)).getIcon());
+
+                                Context context = ContextUtil.getApplication();
+                                int iconSize = context.getResources().getDimensionPixelSize(R.dimen.app_icon_size);
+
+                                AppIconLoader mLoader = new AppIconLoader(iconSize, false, context);
+                                PackageManager pm = Utils.getApp().getPackageManager();
+                                if (pm == null) return null;
+                                PackageInfo packageInfo = pm.getPackageArchiveInfo(file.getAbsolutePath(), 0);
+                                Bitmap icon = null;
+                                if (packageInfo != null) {
+                                    icon = mLoader.loadIcon(packageInfo.applicationInfo);
+                                }
+                                binding.icon.setImageBitmap(icon);
+                                // binding.icon.setImageDrawable(Objects.requireNonNull(AppUtils.getApkInfo(file)).getIcon());
                             } catch (Throwable e) {
                                 binding.icon.setImageResource(iconResId);
                             }
@@ -573,9 +596,13 @@ public class FileBrowser1 extends LinearLayoutCompat implements
                                 || filename.endsWith(".jpg")
                                 || filename.endsWith(".jpeg")
                                 || filename.endsWith(".webp")) {
-                            Glide.with(inflate.getContext())
+                            Glide.with(binding.icon)
                                     .load(file)
-                                    .transition(DrawableTransitionOptions.withCrossFade(0))
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                    .skipMemoryCache(false)
+                                    .dontAnimate()
+                                    .thumbnail(0.1f)
+                                    .transition(DrawableTransitionOptions.withCrossFade())
                                     .into(binding.icon);
                         } else if (filename.endsWith(".gif")) {
                             Glide.with(inflate.getContext())
@@ -596,10 +623,10 @@ public class FileBrowser1 extends LinearLayoutCompat implements
                                 || filename.endsWith(".rar")
                                 || filename.endsWith(".aar")
                         ) {
-                            binding.icon.setImageResource(ResourceUtils.getDrawableIdByName("file_type_zip"));
+                            binding.icon.setImageResource(R.drawable.file_type_zip);
                         } else if (filename.endsWith(".pom")) {
                             binding.icon.setImageResource(R.drawable.file_type_xml);
-                        }*/
+                        }
                     }
 
 
@@ -648,7 +675,7 @@ public class FileBrowser1 extends LinearLayoutCompat implements
 
 
     static class Data {
-        final FileBrowser1 Zo;
+        final FileBrowser Zo;
         public boolean DW;
         public String FH;
         public FileBrowserCommand Hw;
@@ -656,7 +683,7 @@ public class FileBrowser1 extends LinearLayoutCompat implements
 
         public int v5;
 
-        public Data(FileBrowser1 fileBrowser, String str, String str2, boolean z) {
+        public Data(FileBrowser fileBrowser, String str, String str2, boolean z) {
             this.Zo = fileBrowser;
             this.FH = str;
             this.j6 = str2;
@@ -667,7 +694,7 @@ public class FileBrowser1 extends LinearLayoutCompat implements
             }
             if (DW()) {
                 this.v5 = R.drawable.folder_open; // 上一级
-            } else if (FileBrowser1.we(str2)) {
+            } else if (FileBrowser.we(str2)) {
                 this.v5 = R.drawable.folder_hidden; // 隐藏文件夹
             } else {
                 this.v5 = R.drawable.folder;
@@ -675,7 +702,7 @@ public class FileBrowser1 extends LinearLayoutCompat implements
 
         }
 
-        public Data(FileBrowser1 fileBrowser, FileBrowserCommand fileBrowserCommand) {
+        public Data(FileBrowser fileBrowser, FileBrowserCommand fileBrowserCommand) {
             this.Zo = fileBrowser;
             this.Hw = fileBrowserCommand;
             this.v5 = fileBrowserCommand.getIconId();

@@ -10,6 +10,14 @@
       </SelectionState>
       <SelectionState runConfigName="app_flavor.termux">
         <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2025-06-22T14:55:51.942290600Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=908fe3f9" />
+            </handle>
+          </Target>
+        </DropdownSelection>
+        <DialogSelection />
       </SelectionState>
       <SelectionState runConfigName="app_flavor.default">
         <option name="selectionMode" value="DROPDOWN" />

@@ -52,6 +52,7 @@ com-google-prefab-api = "2.1.0"
 com-facebook-ktfmt = "0.54"
 
 #noinspection GradleDependency
+mmkv = "2.2.2"
 org-jetbrains-kotlinx-coroutines-core-jvm = "1.6.4"
 org-jetbrains-annotations = "26.0.1"
 org-jsoup = "1.18.1"
@@ -263,6 +264,7 @@ com-romainpiel-svgtoandroid = { module = "com.romainpiel.svgtoandroid:svgtoandro
 com-facebook-ktfmt = { module = "com.facebook:ktfmt", version.ref = "com-facebook-ktfmt" }
 
 
+mmkv = { module = "com.tencent:mmkv", version.ref = "mmkv" }
 org-codehaus-plexus-utils = { module = "org.codehaus.plexus:plexus-utils", version.ref = "org-codehaus-plexus-utils" }
 org-apache-maven-model = { module = "org.apache.maven:maven-model", version.ref = "org-apache-maven-model" }
 
