@@ -2,6 +2,7 @@
 
 package com.aide.ui.browsers
 
+/*
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
@@ -34,12 +35,14 @@ import com.topjohnwu.superuser.io.SuFile
 import java.io.File
 
 
+*/
 /**
  * @author: 罪慾
  * @github: https://github.com/neu233/
  * @mail: 3115093767@qq.com
  * @createTime: 2025/5/21
- */
+ *//*
+
 
 @SuppressLint("ViewConstructor")
 class FileBrowser
@@ -83,11 +86,11 @@ class FileBrowser
 
             recyclerView.setOnKeyEventListener(object : FastScrollRecyclerView.OnKeyEventListener {
                 override fun onKeyDown(i: Int, keyEvent: KeyEvent?): Boolean {
-                    return ServiceContainer.getMainActivity().getKeyStrokeDetector().onKeyDown(i, keyEvent, jw)
+                    return ServiceContainer.getMainActivity().keyStrokeDetector.onKeyDown(i, keyEvent, jw)
                 }
 
                 override fun onKeyUp(i: Int, keyEvent: KeyEvent?): Boolean {
-                    return ServiceContainer.getMainActivity().getKeyStrokeDetector().onKeyUp(i, keyEvent, jw)
+                    return ServiceContainer.getMainActivity().keyStrokeDetector.onKeyUp(i, keyEvent, jw)
                 }
 
             })
@@ -200,23 +203,31 @@ class FileBrowser
     }
 
 
-    @Keep /* 外部请求使用了该api */
+    @Keep */
+/* 外部请求使用了该api *//*
+
     fun Ws() {
         aM(this.fY)
     }
 
-    @Keep /* 外部请求使用了该api */
+    @Keep */
+/* 外部请求使用了该api *//*
+
     fun QX() {
         refreshFileList()
     }
 
-    @Keep /* 显示pop menu用的 */
+    @Keep */
+/* 显示pop menu用的 *//*
+
     fun J0() {
-        /*val selectedItem: Any? = getListView().getSelectedItem()
+        */
+/*val selectedItem: Any? = getListView().getSelectedItem()
         if (selectedItem is FileBrowser1.Data) {
             Mr(selectedItem)
             XL(getListView().getSelectedView(), false)
-        }*/
+        }*//*
+
     }
 
     fun EQ() {
@@ -235,14 +246,14 @@ class FileBrowser
     }
 
     override fun onKeyDown(i: Int, keyEvent: KeyEvent?): Boolean {
-        if (ServiceContainer.getMainActivity().getKeyStrokeDetector().onKeyDown(i, keyEvent, jw)) {
+        if (ServiceContainer.getMainActivity().keyStrokeDetector.onKeyDown(i, keyEvent, jw)) {
             return true
         }
         return super.onKeyDown(i, keyEvent)
     }
 
     override fun onKeyUp(i: Int, keyEvent: KeyEvent?): Boolean {
-        if (ServiceContainer.getMainActivity().getKeyStrokeDetector().onKeyUp(i, keyEvent, jw)) {
+        if (ServiceContainer.getMainActivity().keyStrokeDetector.onKeyUp(i, keyEvent, jw)) {
             return true
         }
         return super.onKeyUp(i, keyEvent)
@@ -308,3 +319,4 @@ fun isSpecialDir(file: File): Boolean {
         else -> false
     }
 }
+*/

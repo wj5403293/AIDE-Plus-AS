@@ -24,8 +24,8 @@ dependencies {
     // androidx&material和其他杂七杂八的框架
     api(libs.bundles.google.androidx)
 
-    api(project(":Submodule:AIDE:app_rewrite"))
-    api(project(":Submodule:AIDE:appAideBase"))
+    api(projects.submodule.aide.appAideBase)
+    api(projects.submodule.aide.appRewrite)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

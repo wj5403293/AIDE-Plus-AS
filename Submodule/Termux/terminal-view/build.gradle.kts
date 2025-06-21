@@ -11,5 +11,5 @@ dependencies {
     api(libs.bundles.google.androidx)
     implementation(libs.com.google.guava)
     implementation(libs.bundles.noties.markwon)
-    api(project(":Submodule:Termux:terminal-emulator"))
+    api(projects.submodule.termux.terminalEmulator)
 }

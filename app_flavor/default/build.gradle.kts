@@ -130,8 +130,8 @@ android {
 
 dependencies {
 
+    api(projects.submodule.newBase)
 
-    api(project(":Submodule:NewBase"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

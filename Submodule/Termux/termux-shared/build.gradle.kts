@@ -18,9 +18,7 @@ dependencies {
     implementation("commons-io:commons-io:2.5")
     //noinspection UseTomlInstead
     implementation("com.termux:termux-am-library:v2.0.0")
-
-    api(project(":Submodule:Termux:terminal-view"))
-
+    api(projects.submodule.termux.terminalView)
     val providerLibrary = project.layout.projectDirectory.asFile.resolve("base-api.jar")
     if (providerLibrary.exists()) {
         compileOnly(files(providerLibrary))

@@ -8,10 +8,9 @@ android {
 }
 
 dependencies {
+    api(projects.submodule.buildDeps.jaxpXml)
+    api(projects.submodule.github.hideApi)
 
-    api(project(":Submodule:Github:HideApi"))
-
-    api(project(":Submodule:Build-deps:Jaxp-Xml"))
     // 太多错误了，直接引用jar包
     //api(files("libs/xml-completion-jaxp.jar"))
 

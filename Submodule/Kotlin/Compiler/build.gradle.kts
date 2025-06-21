@@ -87,7 +87,7 @@ dependencies {
 
 
     api(files("libs/kotlin-compiler-2.1.10.jar"))
-    api(project(":Submodule:Build-deps:Jaxp-Xml"))
+    api(projects.submodule.buildDeps.jaxpXml)
 
 
 

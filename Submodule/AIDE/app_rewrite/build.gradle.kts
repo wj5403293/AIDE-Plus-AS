@@ -54,18 +54,19 @@ android {
 
 
 dependencies {
-    api(project(":Submodule:AIDE:appAideBase"))
+    api(projects.submodule.aide.appAideBase)
 
-    api(project(":Submodule:Compiletion:Xml:aaptcompiler"))
-    api(project(":Submodule:Eclipse:JavaFormatter"))
+    api(projects.submodule.compiletion.xml.aaptcompiler)
+    api(projects.submodule.eclipse.javaFormatter)
 
-    api(project(":Submodule:Kotlin:Compiler"))
+    api(projects.submodule.kotlin.compiler)
 
 
-    api(project(":Submodule:Github:Richpath"))
-    api(project(":Submodule:Github:TreeView"))
-    api(project(":Submodule:Github:HideApi"))
-    api(project(":Submodule:Github:FastScroll-Everywhere"))
+    api(projects.submodule.github.richpath)
+    api(projects.submodule.github.treeView)
+    api(projects.submodule.github.hideApi)
+    api(projects.submodule.github.fastScrollEverywhere)
+    api(projects.submodule.github.appIconloader)
 
 
     // 新增内容 2025.05.11

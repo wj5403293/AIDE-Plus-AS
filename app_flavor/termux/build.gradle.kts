@@ -129,11 +129,11 @@ android {
 dependencies {
 
     // termux
-    api(project(":Submodule:Termux:app"))
-    api(project(":Submodule:Termux:terminal-emulator"))
-    api(project(":Submodule:Termux:terminal-view"))
-    api(project(":Submodule:Termux:termux-shared"))
-    api(project(":Submodule:NewBase"))
+    api(projects.submodule.termux.app)
+    api(projects.submodule.termux.termuxShared)
+    api(projects.submodule.termux.terminalView)
+    api(projects.submodule.termux.terminalEmulator)
+    api(projects.submodule.newBase)
 
 
     testImplementation(libs.junit)

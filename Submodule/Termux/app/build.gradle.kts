@@ -6,8 +6,7 @@ plugins {
 }
 
 dependencies {
-    api(project(":Submodule:Termux:terminal-emulator"))
-    api(project(":Submodule:Termux:terminal-view"))
-    api(project(":Submodule:Termux:termux-shared"))
-
+    api(projects.submodule.termux.termuxShared)
+    api(projects.submodule.termux.terminalView)
+    api(projects.submodule.termux.terminalEmulator)
 }

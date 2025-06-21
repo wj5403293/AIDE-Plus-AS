@@ -38,13 +38,7 @@ public class RunService$d implements Runnable {
     }
 
     private void DW(String str) {
-        ServiceContainer.aj(new Runnable() {
-            @Override
-            public void run() {
-                MessageBox.BT(ServiceContainer.getMainActivity(), "Run Error", "Could not run the App directly as root. Consider disabling direct running in the settings.\n静默安装失败。\n\n" + str);
-
-            }
-        });
+        ServiceContainer.aj(() -> MessageBox.BT(ServiceContainer.getMainActivity(), "Run Error", "Could not run the App directly as root. Consider disabling direct running in the settings.\n静默安装失败。\n\n" + str));
     }
 
     @Override
@@ -63,7 +57,7 @@ public class RunService$d implements Runnable {
             printStream.close();
             int waitFor = exec.waitFor();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exec.getErrorStream()), 20);
-            StringBuffer stringBuffer = new StringBuffer();
+            StringBuilder stringBuffer = new StringBuilder();
             while (true) {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
@@ -78,9 +72,9 @@ public class RunService$d implements Runnable {
             } else if (stringBuffer.toString().contains("INSTALL_FAILED_VERSION_DOWNGRADE")) {
                 stringBuffer.append("安装失败，不能降级安装，请卸载当前版本后再安装");
             } else {
-                stringBuffer.append(new StringBuffer().append("exited with ").append(waitFor));
+                stringBuffer.append("exited with ").append(waitFor);
             }
-            stringBuffer.append("exited with " + waitFor);
+            stringBuffer.append("exited with ").append(waitFor);
             AppLog.d("pm: exited with " + waitFor);
             String trim = stringBuffer.toString().trim();
             if (waitFor == 0 && !trim.contains("Failure")) {

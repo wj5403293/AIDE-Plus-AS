@@ -9,7 +9,7 @@
 
 # 🛠️ AIDE-Plus
 
-- [Gradle项目](https://github.com/neu233/AIDE-Plus)
+- [主项目](https://github.com/AndroidIDE-CN/AIDE-Plus)
 
 ## 🪪 仓库信息
 [![GitHub contributors](https://img.shields.io/github/contributors/AndroidIDE-CN/AIDE-Plus)](https://github.com/AndroidIDE-CN/AIDE-Plus/graphs/contributors)
