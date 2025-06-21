@@ -85,7 +85,10 @@ include(
 include(
     ":Submodule:Github:Richpath",
     ":Submodule:Github:TreeView",
-    ":Submodule:Github:HideApi"
+    ":Submodule:Github:HideApi",
+    ":Submodule:Github:FastScroll-Everywhere",
+    ":Submodule:Github:AppIconloader",
+
 )
 
 

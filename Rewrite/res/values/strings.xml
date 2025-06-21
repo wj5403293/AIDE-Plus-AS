@@ -24,4 +24,14 @@
     <string name="designer_ui_system_theme">System Theme</string>
     <string name="designer_ui_app_theme">Application Theme</string>
 
+    <string name="command_files_goto_res">Goto Res Folder</string>
+    <string name="command_files_goto_dir">Goto Dir</string>
+    <string name="command_files_goto_java">Goto Java Folder</string>
+    <string name="command_files_icon_manager">Icon Manager</string>
+
+
+
+
+
+
 </resources>

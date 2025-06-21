@@ -23,6 +23,7 @@ fun Project.launchApp(
     tasks.register("launchApp") {
         doLast {
             // 执行adb命令
+            @Suppress("DEPRECATION")
             exec {
                 commandLine(
                     adbExecutablePath,

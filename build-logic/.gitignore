@@ -1,0 +1,12 @@
+
+.gradle/
+build/
+
+.DS_Store
+captures
+.cxx
+.gradle
+.kotlin
+.vscode
+.cache
+

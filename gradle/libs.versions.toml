@@ -12,22 +12,22 @@ androidx-swiperefreshlayout = "1.1.0"
 androidx-constraintlayout = "2.2.1"
 androidx-appcompat = "1.7.0"
 androidx-preference = "1.2.1"
-androidx-lifecycle-compose = "2.8.7"
+androidx-lifecycle-compose = "2.9.0"
 androidx-core-kts = "1.16.0"
 
 
-androidx-navigation = "2.8.9"
+androidx-navigation = "2.9.0"
 androidx-hilt-navigation-compose = "1.2.0"
 
 
 androidx-activity-compose = "1.10.1"
-androidx-compose-bom = "2025.04.01"
+androidx-compose-bom = "2025.05.00"
 androidx-wear-compose = "1.4.1"
 
 
 
 androidx-constraintlayout-compose = "1.1.1"
-androidx-lifecycle-runtime-compose = "2.8.7"
+androidx-lifecycle-runtime-compose = "2.9.0"
 
 
 com-google-accompanistVersion = "0.34.0"
@@ -41,8 +41,8 @@ com-android-tools-build-apksig = "8.5.2"
 com-google-auto-value = "1.11.0"
 
 com-android-tools-aapt2-proto = "8.3.2-10880808"
-com-android-tools-annotations = "31.9.2"
-com-android-tools-common = "31.9.2"
+com-android-tools-annotations = "31.10.0"
+com-android-tools-common = "31.10.0"
 
 com-google-googlejavaformat-google-java-format = "1.24.0"
 
@@ -74,7 +74,7 @@ commons-io = "2.5"
 android-tools-desugar-jdk-libs = "2.1.5"
 
 com-google-guava = "33.3.1-android"
-com-google-code-gson = "2.13.0"
+com-google-code-gson = "2.13.1"
 
 
 com-google-dagger-hilt-pluginVersion = "2.51.1"
@@ -110,10 +110,12 @@ io-github-rikka-shizukuVersion = "13.1.5"
 com-google-protobuf-java = "4.28.2"
 org-jetbrains-intellij-deps-trove4j = "1.0.20200330"
 com-github-megatronking-svg-support = "1.3.2"
+io-github-bigBadaboom-androidsvg = "1.4"
 com-romainpiel-svgtoandroid = "0.1.0"
 com-github-promeg-tinypinyin = "2.0.3"
 
 io-coil-kt = "2.7.0"
+io-coil-kt-base = "2.7.0"
 
 
 net-margaritov-preference-colorpickercolorpickerpreference = "1.0.0"
@@ -122,12 +124,12 @@ net-margaritov-preference-colorpickercolorpickerpreference = "1.0.0"
 #noinspection GradleDependency
 com-fasterxml-jackson-dataformatVersion = "2.15.2"
 
-androidGradlePlugin = "8.9.2"
+androidGradlePlugin = "8.10.1"
 kotlinGradlePlugin = "2.1.20"
 googleDagge = "2.55"
 devtoolsKsp = "2.1.20-2.0.1"
 androidx-benchmark-macro = "1.3.4"
-uiTextGoogleFonts = "1.8.0"
+uiTextGoogleFonts = "1.8.1"
 
 
 [libraries]
@@ -253,7 +255,7 @@ com-google-dagger-compiler = { module = "com.google.dagger:dagger-compiler", ver
 
 com-google-protobuf-java = { module = "com.google.protobuf:protobuf-java", version.ref = "com-google-protobuf-java" }
 
-
+io-github-bigBadaboom-androidsvg = { module = "com.caverock:androidsvg", version.ref = "io-github-bigBadaboom-androidsvg" }
 com-github-megatronking-svg-support = { module = "com.github.megatronking:svg-support", version.ref = "com-github-megatronking-svg-support" }
 com-romainpiel-svgtoandroid = { module = "com.romainpiel.svgtoandroid:svgtoandroid", version.ref = "com-romainpiel-svgtoandroid" }
 
@@ -355,7 +357,7 @@ io-noties-markwon-ext-strikethrough = { module = "io.noties.markwon:ext-striketh
 io-noties-markwon-linkify = { module = "io.noties.markwon:linkify", version.ref = "io-noties-markwonVersion" }
 io-noties-markwon-recycler = { module = "io.noties.markwon:recycler", version.ref = "io-noties-markwonVersion" }
 
-
+io-coil-kt-base = { module = "io.coil-kt:coil-base", version.ref = "io-coil-kt-base" }
 io-coil-kt = { module = "io.coil-kt:coil", version.ref = "io-coil-kt" }
 io-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "io-coil-kt" }
 io-coil-svg = { module = "io.coil-kt:coil-svg", version.ref = "io-coil-kt" }

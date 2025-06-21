@@ -1,3 +1,6 @@
 
 res
 AndroidManifest.xml
+.gradle
+/build
+lint-baseline.xml

@@ -65,12 +65,21 @@ dependencies {
     api(project(":Submodule:Github:Richpath"))
     api(project(":Submodule:Github:TreeView"))
     api(project(":Submodule:Github:HideApi"))
+    api(project(":Submodule:Github:FastScroll-Everywhere"))
 
 
-    // 新增内容
+    // 新增内容 2025.05.11
     api(libs.io.github.itsaky.nb.javac.android)
-
     api(libs.bundles.tinypinyin)
+    implementation(libs.io.github.bumptech.glide)
+    implementation(libs.com.github.megatronking.svg.support)
+    implementation(libs.com.romainpiel.svgtoandroid)
+    implementation(libs.io.github.bigBadaboom.androidsvg)
+
+    implementation(libs.io.github.scwang90.refresh.layout.kernel)
+    implementation(libs.io.github.scwang90.refresh.header.material)
+
+
 
     //多语言工具
     implementation(libs.io.github.getActivity.multiLanguages)
