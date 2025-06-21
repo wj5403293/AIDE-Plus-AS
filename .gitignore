@@ -104,5 +104,6 @@ version.txt
 
 AIDELibrary
 build
+.build
 build-logic/build/
 build-logic/.gradle

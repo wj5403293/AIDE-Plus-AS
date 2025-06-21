@@ -1,20 +1,15 @@
-![AIDEPlus](https://socialify.git.ci/AndroidIDE-CN/AIDE-Plus-AS/image?description=1&font=KoHo&forks=1&issues=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2FAndroidIDE-CN%2FAIDE-Plus%2Frefs%2Fheads%2F2.3%2F.idea%2Ficon.svg&name=1&owner=1&pattern=Circuit+Board&pulls=1&stargazers=1&theme=Auto)
-
+![AIDEPlus](https://socialify.git.ci/AndroidIDE-CN/AIDE-Plus/image?description=1&font=KoHo&forks=1&issues=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2FAndroidIDE-CN%2FAIDE-Plus%2Frefs%2Fheads%2F2.3%2F.idea%2Ficon.svg&name=1&owner=1&pattern=Circuit+Board&pulls=1&stargazers=1&theme=Auto)
 
 > [!TIP]
-> This project is built using Android Studio
-> It uses Kotlin, so AIDE+ cannot be self-hosted
-> If you want self-hosting, please visit the main project
+> This project can only run on Gradle  
+> For AIDE+ bootstrapping, please visit the **Main Project**
 
-
-
-**English** 👈 |
-[**中文**](README_zh.md)
-
+[**English**](README.md) 👈 |  
+[中文](README_zh.md)
 
 # 🛠️ AIDE-Plus
 
-- [Main Project](https://github.com/AndroidIDE-CN/AIDE-Plus)
+- [**Main Project**](https://github.com/AndroidIDE-CN/AIDE-Plus)
 
 ## 🪪 Repository Information
 [![GitHub contributors](https://img.shields.io/github/contributors/AndroidIDE-CN/AIDE-Plus)](https://github.com/AndroidIDE-CN/AIDE-Plus/graphs/contributors)
@@ -27,51 +22,51 @@
 - [x] Build service optimization and rewrite
 - [x] Replaced aapt with aapt2
 - [x] Replaced dx with D8
-- [x] Implementation of some Java 8 syntax (default syntax analysis)
-- [x] Implementation of some Java 9 syntax (default syntax analysis)
-- [x] Implementation of some Java 11 syntax (default syntax analysis)
-- [x] Java 23 compilation (implemented through ecj, needs to be enabled in settings)
-- [x] High version Java formatting (implemented through ecj, needs to be enabled in settings)
-- [x] Custom class parser to implement high version class features
-- [x] Implemented `runtimeOnly`, `compileOnly`, `libgdxNatives`
+- [x] Partial Java 8 syntax support (default syntax analysis)
+- [x] Partial Java 9 syntax support (default syntax analysis)
+- [x] Partial Java 11 syntax support (default syntax analysis)
+- [x] Java 23 compilation (via ecj, requires enabling in settings)
+- [x] Java formatting fixes (via ecj, requires enabling in settings)
+- [x] Custom class parser for high-version class features
+- [x] Implemented `runtimeOnly`, `compileOnly`, and `libgdxNatives`
 - [x] Rewritten Gradle parser
-- [x] New Maven downloader (bom supported)
-- [x] Application cold start optimization
-- [x] Added more syntax highlighting
-- [x] Using D8 for obfuscation
-- [x] Replaced AIDE default framework with Androidx
-- [x] Restored some of AIDE's dex obfuscation
-- [x] Custom code colors
+- [x] New Maven downloader (BOM support added)
+- [x] Application cold-start optimization
+- [x] Added additional syntax highlighting
+- [x] Obfuscation using D8
+- [x] Replaced AIDE default framework with AndroidX
+- [x] Partially deobfuscated AIDE's dex
+- [x] Customizable code colors
 - [x] ViewBinding support
-- [x] DataBinding support
+- [x] ~~DataBinding support~~
 - [x] Manifest merger tool update
-- [x] Fixed silent installation and support for more installers (shizuku)
+- [x] Fixed silent installation and added support for more installers (Shizuku)
 - [x] New UI implementation
 - [x] Fixed completion and highlighting loss issues
-- [x] Fixed signature creation issues
-- [x] ApkSign now supports v1-v4 signatures
-- [x] Added some basic syntax completions
-- [x] Fixed git issues within the software
+- [x] Fixed keystore creation issues
+- [x] ApkSign now supports v1-v3 signatures
+- [x] Added basic syntax completions
+- [x] Fixed Git integration issues
 - [x] APK resource alignment
-- [x] Java projects support Android API
+- [x] Android API support for Java projects
 - [x] Lambda implementation (ecj) [fbf450d](https://github.com/AndroidIDE-CN/AIDE-Plus/commit/fbf450dba15ccaf51a7a6dd77db300d50551e98b)
 - [x] CMake build support [e702347](https://github.com/AndroidIDE-CN/AIDE-Plus/commit/e702347df0c10b718df5aeb4798402802334e310)
-- [x] Modified XML completion logic [0ecb637](https://github.com/neu233/AIDE-Plus/commit/0ecb637e6cb672723df77925e5642fd4b6016c39)
-- [x] File browser rewritten
-
+- [x] Modified XML completion logic [0ecb637](https://github.com/AndroidIDE-CN/AIDE-Plus/commit/f7960418b9326231d55726514f10385396e9e8b6)
+- [x] Added `exclude` support (exclude group: "xxx", module: "xxx")
+- [x] Rewritten file explorer
 
 ### 🏗️ Planned Features
-- [ ] More completions (LSP)
-- [ ] Apks/AAB generation (not added)
-- [ ] Manifest file editing
-- [ ] Vector graphics acquisition
-- [ ] Layout visualization rewrite
+- [ ] Enhanced completions (LSP)
+- [ ] APKs/AAB generation (not implemented)
+- [ ] Manifest file editor
+- [ ] Vector asset importer
+- [ ] Rewritten layout visualizer
 
 ## 🌠 Related Resources
 - [AIDE-Ndk-Install](https://github.com/ZeroAicy/AIDE-Ndk-Install) NDK Installer
-- [AIDE-Repair](https://github.com/ZeroAicy/AIDE-Repair) Deobfuscation
+- [AIDE-Repair](https://github.com/ZeroAicy/AIDE-Repair) Deobfuscation tool
 
-# 📬️ Related Information
+# 📬️ Contact Information
 - QQ Groups
   * [487145957](https://qm.qq.com/q/W0WJq5qne2)
   * [1002980489](https://qm.qq.com/q/W0WJq5qne2)
@@ -80,17 +75,15 @@
 
 # 🏅 Special Thanks
 > [!TIP]
-> If you or your project is not listed, please contact us to add it
-
-### 😎 Project Related
+> Contact us if you or your project should be listed here
+### 😎 Project Contributors
 - [@墨凡尘轩](https://github.com/ZeroAicy) Project Founder
 - [@烂泥扶上墙](https://github.com/eirv) Project Collaborator
 - [@原罪](https://github.com/neu233) Project Collaborator
 - [@0047ol](https://github.com/0047ol) Project Collaborator
 - [@hujiayucc](https://github.com/hujiayucc) Project Collaborator
-- [@dev-bz](https://github.com/dev-bz) (不知者来此) Provided assistance
-
-### 🐱 Open Source Integration
+- [@dev-bz](https://github.com/dev-bz) Provided assistance
+### 🐱 Integrated Open-Source Projects
 - [AndroidIDE](https://github.com/AndroidIDEOfficial/AndroidIDE)
 - [Termux-app](https://github.com/termux/termux-app)
 - [AIDE-Pro](https://github.com/AndroidIDE-CN/)
@@ -131,6 +124,8 @@
 - [svg2android](https://github.com/RomainPiel/svg2android)
 - [androidsvg](https://github.com/BigBadaboom/androidsvg)
 - [FastScroll-Everywhere](https://github.com/Mixiaoxiao/FastScroll-Everywhere)
+- [AppIconLoader](https://github.com/zhanghai/AppIconLoader)
+- [Glide](https://github.com/bumptech/glide)
 - ~~[jsoup](https://github.com/jhy/jsoup)~~
 - ~~[zip4j](https://github.com/srikanth-lingala/zip4j)~~
 - ~~[intellij-deps-trove4j](https://github.com/JetBrains/intellij-deps-trove4j)~~
@@ -138,7 +133,6 @@
 - ~~[SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)~~
 - ~~[sora-editor](https://github.com/Rosemoe/sora-editor)~~
 - ~~[Java Compiler for Android](https://github.com/itsaky/nb-javac-android)~~
-- ~~[Glide](https://github.com/bumptech/glide)~~
 - ~~[BlackObfuscator](https://github.com/CodingGay/BlackObfuscator)~~
 - ~~[google-java-format](https://github.com/google/google-java-format)~~
 - ~~[Kotlin-Formatting](https://github.com/facebook/ktfmt)~~
@@ -151,11 +145,10 @@
 - ~~[Kotlinc-android](https://github.com/Cosmic-Ide/kotlinc-android)~~
 - ~~[LSPosed](https://github.com/LSPosed/LSPosed)~~
 - ~~[aosp-android-jar](https://github.com/Reginer/aosp-android-jar)~~
-### 😊 Related Resources
+### 😊 Resource About
 - [Github](https://github.com/)
 - [Icon8](https://igoutu.cn/)
 - [Google](https://fonts.google.com/icons)
 - [Material3 Theme](https://material-foundation.github.io/material-theme-builder/)
 - [Maven Repository](https://mvnrepository.com/)
-- [阿里矢量图](https://www.iconfont.cn/)
-
+- [Iconfont](https://www.iconfont.cn/)

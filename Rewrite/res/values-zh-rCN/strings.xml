@@ -15,10 +15,6 @@
     <string name="designer_ui_system_theme">系统主题</string>
     <string name="designer_ui_app_theme">应用主题</string>
 
-    <string name="command_files_goto_res">跳转Res文件夹</string>
-    <string name="command_files_goto_dir">文件夹跳转</string>
-    <string name="command_files_goto_java">跳转Java文件夹</string>
-    <string name="command_files_icon_manager">图标管理</string>
 
 
 

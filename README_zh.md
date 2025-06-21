@@ -1,15 +1,15 @@
-![AIDEPlus](https://socialify.git.ci/AndroidIDE-CN/AIDE-Plus-AS/image?description=1&font=KoHo&forks=1&issues=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2FAndroidIDE-CN%2FAIDE-Plus%2Frefs%2Fheads%2F2.3%2F.idea%2Ficon.svg&name=1&owner=1&pattern=Circuit+Board&pulls=1&stargazers=1&theme=Auto)
+![AIDEPlus](https://socialify.git.ci/AndroidIDE-CN/AIDE-Plus/image?description=1&font=KoHo&forks=1&issues=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2FAndroidIDE-CN%2FAIDE-Plus%2Frefs%2Fheads%2F2.3%2F.idea%2Ficon.svg&name=1&owner=1&pattern=Circuit+Board&pulls=1&stargazers=1&theme=Auto)
 
 > [!TIP]
-> 本项目仅能在AIDE+上自举
-> 如若想要Gradle请前往Gradle项目
+> 本项目仅能在Gradle上运行
+> 如若想要AIDE+自举请前往**主项目**
 
 [**English**](README.md)  |
 **中文** 👈
 
 # 🛠️ AIDE-Plus
 
-- [主项目](https://github.com/AndroidIDE-CN/AIDE-Plus)
+- [**主项目**](https://github.com/AndroidIDE-CN/AIDE-Plus)
 
 ## 🪪 仓库信息
 [![GitHub contributors](https://img.shields.io/github/contributors/AndroidIDE-CN/AIDE-Plus)](https://github.com/AndroidIDE-CN/AIDE-Plus/graphs/contributors)
@@ -25,7 +25,7 @@
 - [x] 一些Java8语法的实现(默认语法分析)
 - [x] 一些Java9语法的实现(默认语法分析)
 - [x] 一些Java11语法的实现(默认语法分析)
-- [x] ~~Java23编译(通过ecj实现，需要设置开启)~~
+- [x] Java23编译(通过ecj实现，需要设置开启)
 - [x] Java格式化修复(通过ecj实现，需要设置开启)
 - [x] 自定义class解析器，以实现高版本的class特性
 - [x] 实现了`runtimeOnly`，`compileOnly`，`libgdxNatives`
@@ -125,6 +125,8 @@
 - [svg2android](https://github.com/RomainPiel/svg2android)
 - [androidsvg](https://github.com/BigBadaboom/androidsvg)
 - [FastScroll-Everywhere](https://github.com/Mixiaoxiao/FastScroll-Everywhere)
+- [AppIconLoader](https://github.com/zhanghai/AppIconLoader)
+- [Glide](https://github.com/bumptech/glide)
 - ~~[jsoup](https://github.com/jhy/jsoup)~~
 - ~~[zip4j](https://github.com/srikanth-lingala/zip4j)~~
 - ~~[intellij-deps-trove4j](https://github.com/JetBrains/intellij-deps-trove4j)~~
@@ -132,7 +134,6 @@
 - ~~[SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)~~
 - ~~[sora-editor](https://github.com/Rosemoe/sora-editor)~~
 - ~~[Java Compiler for Android](https://github.com/itsaky/nb-javac-android)~~
-- ~~[Glide](https://github.com/bumptech/glide)~~
 - ~~[BlackObfuscator](https://github.com/CodingGay/BlackObfuscator)~~
 - ~~[google-java-format](https://github.com/google/google-java-format)~~
 - ~~[Kotlin-Formatting](https://github.com/facebook/ktfmt)~~
