@@ -2,9 +2,9 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:paddingHorizontal="8dp"
+    android:paddingHorizontal="5dp"
     android:gravity="center">
 
 
@@ -20,9 +20,10 @@
 
 
     <ImageView
-        android:src="@drawable/abc_ic_go_search_api_material"
+        android:src="@drawable/baseline_keyboard_arrow_right_24"
         android:id="@+id/divider"
-        android:layout_marginHorizontal="5dp"
-        android:layout_width="35dp"
-        android:layout_height="35dp" />
+        android:tint="@android:color/darker_gray"
+        android:layout_marginHorizontal="2dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp" />
 </LinearLayout>
