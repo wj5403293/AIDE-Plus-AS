@@ -3,4 +3,26 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8" />
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AIDE-Plus.Submodule.Build-deps.Jaxp-Kotlin" options="-Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Build-deps.Jaxp-Kotlin.main" options="-Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Build-deps.Jaxp-Kotlin.test" options="-Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Build-deps.Jaxp-Xml" options="-Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Build-deps.Jaxp-Xml.main" options="-Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Build-deps.Jaxp-Xml.test" options="-Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Eclipse.JavaFormatter" options="-Xlint:none -Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Eclipse.JavaFormatter.main" options="-Xlint:none -Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Eclipse.JavaFormatter.test" options="-Xlint:none -Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Github.HideApi" options="-Xlint:none -Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Github.HideApi.main" options="-Xlint:none -Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Github.HideApi.test" options="-Xlint:none -Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Kotlin.Compiler" options="-Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Kotlin.Compiler.main" options="-Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Kotlin.Compiler.test" options="-Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Kotlin.the-unsafe" options="-Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Kotlin.the-unsafe.main" options="-Xlint:none" />
+      <module name="AIDE-Plus.Submodule.Kotlin.the-unsafe.test" options="-Xlint:none" />
+    </option>
+  </component>
 </project>
