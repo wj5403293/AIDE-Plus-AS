@@ -1,4 +1,5 @@
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
 
     <string name="designer_ui_open_start">Project</string>
     <string name="designer_ui_open_end">Resource</string>
@@ -14,7 +15,8 @@
     <string name="designer_ui_basic_settings_title">BasicSettings</string>
 
 
-    <string-array name="designer_ui_mode_all" translatable="false">
+    <string-array name="designer_ui_mode_all"
+        translatable="false">
         <item>@string/designer_ui_mode_display_blueprint</item>
         <item>@string/designer_ui_mode_display_design</item>
         <item>@string/designer_ui_mode_display_view</item>
@@ -25,9 +27,22 @@
     <string name="designer_ui_app_theme">Application Theme</string>
 
 
+    <string name="manifest_xml_editor_activity_label">Manifest File Design</string>
 
 
+    <string name="manifest_xml_editor_alert_dialog_not_found_title">Not Found</string>
+    <string name="manifest_xml_editor_alert_dialog_not_found_message">No file was found to edit</string>
 
+
+    <string name="manifest_xml_editor_list_application" translatable="false">Application</string>
+    <string name="manifest_xml_editor_list_permissions" translatable="false">Permissions</string>
+    <string name="manifest_xml_editor_list_activity" translatable="false">Activity</string>
+    <string name="manifest_xml_editor_list_components" translatable="false">Components</string>
+
+    <string name="manifest_xml_editor_list_application_description">Default properties for the app</string>
+    <string name="manifest_xml_editor_list_permissions_description">Add Permissions to the app</string>
+    <string name="manifest_xml_editor_list_activity_description">Add activity to the app</string>
+    <string name="manifest_xml_editor_list_components_description">Add extra components to the app</string>
 
 
 </resources>

@@ -6,18 +6,24 @@
 
     <application>
         <activity
-                android:theme="@style/AppTheme"
+            android:label="@string/manifest_xml_editor_activity_label"
+                android:theme="@style/AppTheme_Material3"
                 android:name="io.github.zeroaicy.aide.activity.ManifestEditorActivity"
                 android:exported="false" />
 
         <activity
-                android:theme="@style/AppTheme"
+                android:theme="@style/AppTheme_Material3"
                 android:name="io.github.zeroaicy.aide.activity.JsonEditorActivity"
                 android:exported="false" />
 
         <activity
-            android:theme="@style/AppTheme"
+            android:theme="@style/AppTheme_Material3"
             android:name="io.github.zeroaicy.aide.activity.AndroidXmlEditorActivity"
+            android:exported="false" />
+
+        <activity
+            android:theme="@style/AppTheme_Material3"
+            android:name="io.github.zeroaicy.aide.activity.ResourceManagerActivity"
             android:exported="false" />
     </application>
 

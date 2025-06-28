@@ -14,9 +14,14 @@
 
     <string name="designer_ui_system_theme">系统主题</string>
     <string name="designer_ui_app_theme">应用主题</string>
+    <string name="manifest_xml_editor_alert_dialog_not_found_title">没找到</string>
+    <string name="manifest_xml_editor_alert_dialog_not_found_message">没有文件可以编辑</string>
 
 
-
+    <string name="manifest_xml_editor_list_application_description">应用的默认属性</string>
+    <string name="manifest_xml_editor_list_permissions_description">向应用添加权限</string>
+    <string name="manifest_xml_editor_list_activity_description">向应用添加活动</string>
+    <string name="manifest_xml_editor_list_components_description">向应用添加额外的组件</string>
 
 
 </resources>

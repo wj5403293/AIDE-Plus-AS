@@ -11,52 +11,6 @@ val namespaceHashMap = mutableMapOf(
     "appAideBase" to "com.aide.ui.base"
 )
 
-val replaceXmlText = mutableMapOf(
-    "<attr name=\"fontProviderFetchStrategy\">\n" +
-            "        <enum name=\"async\" value=\"1\" />\n" +
-            "        <enum name=\"blocking\" value=\"0\" />\n" +
-            "    </attr>" to "",
-    "<attr name=\"fontProviderFetchTimeout\" format=\"integer\">\n" +
-            "        <enum name=\"forever\" value=\"-1\" />\n" +
-            "    </attr>" to "",
-    "<attr name=\"fontStyle\">\n" +
-            "        <enum name=\"italic\" value=\"1\" />\n" +
-            "        <enum name=\"normal\" value=\"0\" />\n" +
-            "    </attr>" to "",
-    "<color name=\"accent_material_light\">#ff29b6f6</color>" to "",
-    "<color name=\"primary_dark_material_light\">#ff29b6f6</color>" to "",
-    "<color name=\"primary_material_light\">#ffffffff</color>" to "",
-    "<color name=\"primary_dark_material2\">#ff03a9f4</color>\n" +
-            "    <color name=\"primary_dark_material_light2\">#ff29b6f6</color>\n" +
-            "\t<color name=\"accent_material2\">#ff03a9f4</color>\n" +
-            "    <color name=\"accent_material_light2\">#ff29b6f6</color>\n" +
-            "\t<color name=\"primary_material2\">#ff222222</color>\n" +
-            "    <color name=\"primary_material_light2\">#ffffffff</color>" to "<color name=\"accent_material\">#ff03a9f4</color>\n" +
-            "    <color name=\"accent_material_light\">#ff29b6f6</color>\n" +
-            "    <color name=\"popup_background\">#ff111111</color>\n" +
-            "    <color name=\"popup_background_light\">#ffffffff</color>\n" +
-            "    <color name=\"popup_border\">#ffbbbbbb</color>\n" +
-            "    <color name=\"popup_border_light\">#ffbbbbbb</color>\n" +
-            "    <color name=\"primary_dark_material\">#ff191919</color>\n" +
-            "    <color name=\"primary_dark_material_light\">#ffe0e0e0</color>\n" +
-            "    <color name=\"primary_material\">#ff222222</color>\n" +
-            "    <color name=\"primary_material_light\">#ffffffff</color>\n" +
-            "    <color name=\"primary_text_default_material_dark\">#ffffffff</color>\n"
-)
-
-val replaceTxt = mutableListOf(
-    """ <attr name="fontStyle">
-        <enum name="italic" value="1" />
-        <enum name="normal" value="0" />
-    </attr>""",
-    """<attr name="fontProviderFetchStrategy">
-        <enum name="async" value="1" />
-        <enum name="blocking" value="0" />
-    </attr>""",
-    """<attr name="fontProviderFetchTimeout" format="integer">
-        <enum name="forever" value="-1" />
-    </attr>"""
-)
 
 android {
 

@@ -70,7 +70,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/ic_arrow_drop_down_24px"
-                        android:id="@+id/imageview_controller"/>
+                        android:id="@+id/imageview_controller" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
