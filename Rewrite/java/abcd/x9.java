@@ -9,12 +9,12 @@ description : QQ3115093767
 
 import android.content.Context;
 import android.content.Intent;
+
 import com.aide.common.KeyStroke;
 import com.aide.ui.ServiceContainer;
 import com.aide.ui.command.KeyStrokeCommand;
 import com.aide.ui.command.MenuCommand;
 import com.aide.ui.rewrite.R;
-import com.aide.ui.rewrite.databinding.ActivityJsonEditorBinding;
 import com.aide.ui.services.ProjectSupport;
 import com.aide.ui.util.FileSystem;
 import com.probelytics.Probelytics;
@@ -236,7 +236,13 @@ public class x9 implements rf, KeyStrokeCommand, MenuCommand {
             intent.putExtra("path", visibleFile);
             context.startActivity(intent);
             return true;
-        } else if (visibleFile.endsWith("json")) {
+        } else if (visibleFile.endsWith(".json")) {
+            Context context = ContextUtil.getContext();
+            Intent intent = new Intent(context, JsonEditorActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra("path", visibleFile);
+            context.startActivity(intent);
+        }else if (visibleFile.endsWith(".toml")) {
             Context context = ContextUtil.getContext();
             Intent intent = new Intent(context, JsonEditorActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

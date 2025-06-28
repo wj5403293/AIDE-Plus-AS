@@ -39,7 +39,11 @@ android {
             from(javaClasses, kotlinClasses)
             include(
                 "abcd/v7.class",
-                "io/github/zeroaicy/aide/completion/XmlCompletionUtilsKt.class"
+                "io/github/zeroaicy/aide/completion/XmlCompletionUtilsKt.class",
+                "io/github/zeroaicy/aide/utils/FilesSystem.class",
+                "io/github/zeroaicy/aide/utils/FilesSystemKt.class",
+                "io/github/zeroaicy/aide/commands/IconManagerCommand.class"
+
             )
             //exclude()
             dependsOn(javaCompileProvider)

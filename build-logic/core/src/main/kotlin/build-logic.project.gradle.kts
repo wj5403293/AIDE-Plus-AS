@@ -30,10 +30,7 @@ subprojects {
     }
 
     tasks.withType<KotlinCompile> {
-        @Suppress("DEPRECATION")
-        kotlinOptions {
-            jvmTarget = "21"
-        }
+        
     }
 
 }
