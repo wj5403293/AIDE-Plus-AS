@@ -77,7 +77,7 @@ android {
 
         val publicXmlFile =
             rootDir.resolve("Submodule/AIDE/AIDE-Plus/appAideBase/src/main/res/values/public.xml")
-        val publicTxtFile = rootDir.resolve("ids-default.txt")
+        val publicTxtFile =  rootProject.layout.buildDirectory.get().asFile.resolve("ids-default.txt")
 
         if (publicXmlFile.exists()) {
             // 创建父目录并确保 publicTxtFile 存在
