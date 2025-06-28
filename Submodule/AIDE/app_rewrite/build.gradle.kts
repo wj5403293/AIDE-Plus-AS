@@ -116,7 +116,6 @@ dependencies {
     api(libs.androidx.legacy.support.v4)
 
     api(libs.androidx.multidex)
-    implementation(libs.androidx.recyclerview)
 
 
     // app_rewrite的依赖

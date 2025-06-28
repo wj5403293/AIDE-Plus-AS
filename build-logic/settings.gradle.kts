@@ -17,4 +17,3 @@ dependencyResolutionManagement {
 
 include(":core")
 rootProject.name = "build-logic"
-
